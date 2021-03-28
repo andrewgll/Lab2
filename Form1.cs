@@ -134,14 +134,14 @@ namespace Lab2_true
                 chartForm.Show();
         }
 
-        private void SaveButton_Click(object sender, EventArgs e)
+        private void Lab2Form_FormClosing(object sender, FormClosingEventArgs e)
         {
             TextWriter txt = new StreamWriter(openFileDialog.FileName);
             for (int i = 0; i < MatrixGridView.Rows.Count; i++)
             {
                 for (int j = 0; j < MatrixGridView.Columns.Count; j++)
                 {
-                    txt.Write(MatrixGridView[j,i].Value.ToString() + " ");
+                    txt.Write(MatrixGridView[j, i].Value.ToString() + " ");
                 }
                 txt.WriteLine();
             }

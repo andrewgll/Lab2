@@ -101,6 +101,7 @@ namespace Lab2_true
             this.Controls.Add(this.MatrixGridView);
             this.Name = "Lab2Form";
             this.Text = "Lab 2";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Lab2Form_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.MatrixGridView)).EndInit();
             this.ResumeLayout(false);
 
