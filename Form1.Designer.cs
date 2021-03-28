@@ -34,7 +34,6 @@ namespace Lab2_true
             this.LoadButton = new System.Windows.Forms.Button();
             this.OpenChartButton = new System.Windows.Forms.Button();
             this.TaskButton = new System.Windows.Forms.Button();
-            this.SaveButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.MatrixGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,31 +82,19 @@ namespace Lab2_true
             // 
             this.TaskButton.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.TaskButton.Enabled = false;
-            this.TaskButton.Location = new System.Drawing.Point(314, 545);
+            this.TaskButton.Location = new System.Drawing.Point(314, 432);
             this.TaskButton.Name = "TaskButton";
-            this.TaskButton.Size = new System.Drawing.Size(474, 138);
+            this.TaskButton.Size = new System.Drawing.Size(474, 251);
             this.TaskButton.TabIndex = 3;
             this.TaskButton.Text = "Task";
             this.TaskButton.UseVisualStyleBackColor = true;
             this.TaskButton.Click += new System.EventHandler(this.TaskButton_Click);
-            // 
-            // SaveButton
-            // 
-            this.SaveButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SaveButton.Location = new System.Drawing.Point(314, 432);
-            this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(474, 113);
-            this.SaveButton.TabIndex = 4;
-            this.SaveButton.Text = "Save";
-            this.SaveButton.UseVisualStyleBackColor = true;
-            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // Lab2Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1015, 683);
-            this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.TaskButton);
             this.Controls.Add(this.OpenChartButton);
             this.Controls.Add(this.LoadButton);
@@ -126,7 +113,6 @@ namespace Lab2_true
         private System.Windows.Forms.Button LoadButton;
         private System.Windows.Forms.Button OpenChartButton;
         private System.Windows.Forms.Button TaskButton;
-        private System.Windows.Forms.Button SaveButton;
     }
 }
 

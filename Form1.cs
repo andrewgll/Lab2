@@ -24,7 +24,7 @@ namespace Lab2_true
         {
             var matrix = new List<string[]>();
             bool isValidData = false;
-            openFileDialog.InitialDirectory = @"C:\Users\dungm\source\repos\Lab2_true\TextFiles";
+            openFileDialog.InitialDirectory = @"C:\Users\";
             openFileDialog.FileName = fileName;
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -112,11 +112,12 @@ namespace Lab2_true
             {
                 for (int i = 0; i < matrix.GetLength(1); i++)
                 {
-                    double sum = 0;
-                    for (int j = 0; j < matrix.GetLength(0); j++)
-                        sum += matrix[j, i];
+                    bool isMin = true;
+                    for (int j = 0; j < matrix.GetLength(0) - 1; j++)
+                        if (matrix[j, i] < matrix[j + 1, i])
+                            isMin = false;
 
-                    if (Math.Log(sum, 3) % 1 <= 1e-10)
+                    if (isMin)
                         MatrixGridView.Columns[i].DefaultCellStyle.BackColor = Color.Red;
                     else
                         MatrixGridView.Columns[i].DefaultCellStyle.BackColor = Color.White;
@@ -135,7 +136,7 @@ namespace Lab2_true
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            TextWriter txt = new StreamWriter(@"C:\Users\dungm\source\repos\Lab2_true\TextFiles\matrix.txt");
+            TextWriter txt = new StreamWriter(openFileDialog.FileName);
             for (int i = 0; i < MatrixGridView.Rows.Count; i++)
             {
                 for (int j = 0; j < MatrixGridView.Columns.Count; j++)

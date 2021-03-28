@@ -26,28 +26,30 @@ namespace Lab2_true
             var objChart = LineChart.ChartAreas[0];
             objChart.AxisX.Minimum = 1;
             objChart.AxisX.Maximum = matrix.GetLength(1);
-            var ga = new List<double>();
+            var smallest = new List<double>();
 
             for (int i = 0; i < matrix.GetLength(1); i++)
             {
-                double k = 1;
-                for (int j = 0; j < matrix.GetLength(0); j++)
-                {
-                    k *= matrix[j, i];
-                }
-                ga.Add(Math.Pow(Math.Abs(k), 1 / (double)matrix.GetLength(0)));
+                double min = matrix[0, i];
+                for (int j = 1; j < matrix.GetLength(0); j++)
+                    if (matrix[j, i] < min && matrix[j, i] > 0)
+                        min = matrix[j, i];
+                smallest.Add(min.ToString().Sum(c => c - '0'));
             }
 
-            objChart.AxisY.Minimum = ga.Min() - ga.Min() % 0.01 + 0.01;
-            objChart.AxisY.Maximum = ga.Max() - ga.Max() % 0.01 + 0.01;
+            objChart.AxisY.Minimum = smallest.Min();
+            objChart.AxisY.Maximum = smallest.Max();
 
-            LineChart.Series.Add("Geometric Avarage");
-            LineChart.Series["Geometric Avarage"].Color = Color.Red;
-            LineChart.Series["Geometric Avarage"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-
-            for (int i = 1; i <= ga.Count; i++)
+            LineChart.Series.Add("Smallest num sum in collumn");
+            LineChart.Series["Smallest num sum in collumn"].Color = Color.Red;
+            LineChart.Series["Smallest num sum in collumn"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
+            LineChart.Series["Smallest num sum in collumn"].BorderWidth = 1;
+            LineChart.Series["Smallest num sum in collumn"].MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.None;
+            LineChart.Series["Smallest num sum in collumn"].IsVisibleInLegend = false;
+            LineChart.Series["Smallest num sum in collumn"].Color = Color.Red;
+            for (int i = 1; i <= smallest.Count; i++)
             {
-                LineChart.Series["Geometric Avarage"].Points.AddXY(i, ga[i - 1]);
+                LineChart.Series["Smallest num sum in collumn"].Points.AddXY(i, smallest[i - 1]);
             }
 
         }
